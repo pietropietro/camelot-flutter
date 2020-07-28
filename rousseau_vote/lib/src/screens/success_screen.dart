@@ -13,7 +13,7 @@ class SuccessScreen extends StatelessWidget{
 
   @override Widget build(BuildContext context) {
     // TODO: implement build
-      return Scaffold(
+      return RousseauLoggedScaffold(
         appBar: RousseauAppBar(),
         body: Padding(
         padding: const EdgeInsets.only(top:40, bottom: 15, left: 15,right: 15),

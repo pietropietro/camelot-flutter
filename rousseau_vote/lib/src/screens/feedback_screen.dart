@@ -106,11 +106,15 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       _loading = true;
     });
     FeedbackSubmitResponse response = await _userNetworkHandler.feedbackSubmit(category, textController.text);
+    setState(() {
+      _loading = false;
+    });
     if(response == null || response.errors != null){
       showRousseauSnackbar(context, _scaffoldState, 'error-generic');
       return;
     }
-    // openRoute(context, SuccessScreen.ROUTE_NAME, arguments: 'ciao', replace: true);
-    openModalSuccessPage(context, message:'feedback-thanks');
+    showRousseauDialog(context, () => openRoute(context, '/polls'), 'feedback', 'feedback-thanks', 'back-home');
+    // openModalSuccessPage(context, message:'feedback-thanks');
   }
+
 }
